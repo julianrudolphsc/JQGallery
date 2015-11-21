@@ -21,3 +21,39 @@ var pictures = [
 	"url":"../img/Thailandbkk.jpg"
 	}
 ];
+
+$(document).ready(function(){
+	var count = 0;
+	$(pictures).each(function(){
+	
+		var img = $(document.createElement("img"));
+		$(img).attr({
+		"src":this.url,
+		"data-index":count,
+		"title":this.title,
+		"alt":this.description
+		});
+		
+		$(img).appendTo("figure");
+		var thumb = $(img).cloe().appendTo("nav");
+		$(thumb).bind("click", function(){
+			$("figure img").each(function(){
+			$(this).addCLass("hidden");
+			});
+			$('figure img[data-index="'+this.getAttribute("data-index")+'"]').removeClass("hidden");
+			$('h3').html(this.getAttribute("title"));
+			$('figcaption').html(this.getAttribute("alt"));
+		});
+			count++;
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	});
+	
+});
